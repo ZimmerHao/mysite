@@ -6,7 +6,7 @@ import logging
 from django.utils.log import RequireDebugTrue
 
 
-mylogger = logging.getLogger('custom')
+mylogger = logging.getLogger('django.request')
 
 def index(request):
     latest_question_list = [{'id': 1, 'question_text': 'who am i'},
