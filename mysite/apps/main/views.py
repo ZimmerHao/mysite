@@ -2,15 +2,18 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import get_list_or_404, get_object_or_404, render
-from django.views import generic
+import logging
+from django.utils.log import RequireDebugTrue
 
 
-class IndexView(generic.ListView):
-    template_name = "main/index.html"
+mylogger = logging.getLogger('custom')
 
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return "aaa"
+def index(request):
+    latest_question_list = [{'id': 1, 'question_text': 'who am i'},
+                            {'id': 2, 'question_text': 'where am i'}]
+    context = {'latest_question_list': latest_question_list}
+    mylogger.info('test in~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+    return render(request, 'main/index.html', context)
 
 
 

@@ -7,6 +7,14 @@
     <link href= {% static "components/bootstrap/dist/css/bootstrap.min.css" %} rel="stylesheet">
 </head>
 <body>
-    <h1>dddddddd</h1>
+    {% if latest_question_list %}
+        <ul>
+        {% for question in latest_question_list %}
+            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
 </body>
 </html>

@@ -1,11 +1,13 @@
 from common import *
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'mysite', 'assets', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets', 'static')
 
+
+LOGGING_FILE = '/home/vagrant/logfile'
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'disable_existing_loggers': True,
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
@@ -15,10 +17,12 @@ LOGGING = {
         },
     },
     'filters': {
-        'special': {
-            '()': 'project.logging.SpecialFilter',
-            'foo': 'bar',
-        }
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
     },
     'handlers': {
         'null': {
@@ -28,12 +32,19 @@ LOGGING = {
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+            'formatter': 'verbose',
+            'filters': ['require_debug_true'],
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': LOGGING_FILE,
+            'formatter': 'verbose',
         },
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['special']
+            'filters': ['require_debug_false'],
         }
     },
     'loggers': {
@@ -47,10 +58,10 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-        'myproject.custom': {
-            'handlers': ['console', 'mail_admins'],
+        'custom': {
+            'handlers': ['console', 'file'],
             'level': 'INFO',
-            'filters': ['special']
+            'filters': ['require_debug_true']
         }
     }
 }
