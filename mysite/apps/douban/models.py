@@ -12,6 +12,7 @@ class Book(models.Model):
     publisher = models.CharField(verbose_name='出版社', max_length=100, blank=True, null=True)
     subhead = models.CharField(verbose_name='副标题', max_length=100, blank=True, null=True)
     original_name = models.CharField(verbose_name='原著名', max_length=100, blank=True, null=True)
+    interpreter = models.CharField(verbose_name='译者', max_length=100, blank=True, null=True)
     published_year = models.DateField(verbose_name='出版日期', blank=True, null=True)
     page_count = models.IntegerField(verbose_name='页数', blank=True, null=True)
     price = models.CharField(verbose_name='定价', max_length=100, blank=True, null=True)
