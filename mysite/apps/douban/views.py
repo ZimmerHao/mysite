@@ -2,16 +2,11 @@
 
 from mysite.apps.douban.models import Book
 from mysite.apps.douban.serializers import BookSerializer
-from rest_framework import generics
+from rest_framework import viewsets
 
 
 
-class BookList(generics.ListAPIView):
+class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
-
-
-class BookDetail(generics.RetrieveAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
