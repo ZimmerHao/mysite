@@ -5,26 +5,27 @@
     var BookSummary = Backbone.Model.extend({
         //
         defaults: function() {
-                return {
-                    name: "",
-                    image: "",
-                    author: "",
-                    price: ""
-                }
+            return {
+                name: "",
+                image: "",
+                author: "",
+                price: ""
+            };
         }
     });
 
-    var BookSummarys = Backbone.Collection.extend({
+    var BookSummaryList = Backbone.Collection.extend({
         //
-        model: BookSummary
+        model: BookSummary,
 
+        url: "/douban/books"
     });
 
-    var bookSummarys = new BookSummarys
+    var BookSummarys = new BookSummaryList;
 
     var BookSummaryView = Backbone.Collection.extend({
        //
-        el: $("#bookshelf"),
+        el: $("#book-list"),
 
         template: _.template($('#book-summary-item-template').html()),
 
@@ -46,17 +47,41 @@
 
     var AppView = Backbone.View.extend({
 
+        el: "#main",
+
+        bookList: $("#book-list"),
+
         initialize: function () {
-            this.listenTo(bookSummarys, 'all', this.render);
-            this.main =$('#main');
+
+            this.listenTo(BookSummarys, 'reset', this.showBookList);
+            this.listenTo(BookSummarys, 'all', this.render);
+
+            this.main = $("#main");
+            BookSummarys.fetch();
+        },
+
+        showBookItem: function(bookItem) {
+            var view = new BookSummaryView({model: bookItem});
+            this.bookList.append(view.render().el);
+        },
+
+        showBookList: function() {
+            BookSummarys.each(this.showBookItem, this);
         },
 
         render: function() {
-            this.main.show();
+            if (BookSummarys.length) {
+                this.main.show();
+            } else {
+                this.main.hide()
+            }
+
         }
     });
 
 
     //实例化AppView
-    var appview = new AppView;
+    var App = new AppView;
+
+
 })(jQuery);
