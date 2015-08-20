@@ -2,39 +2,61 @@
  * Created by jinming on 15/8/19.
  */
 (function ($) {
-    var Book = Backbone.Model.extend({
-        //创建一个World的对象，拥有name属性
-        name: null
-    });
-
-    var Worlds = Backbone.Collection.extend({
-        //World对象的集合
-        initialize: function (models, options) {
-                this.bind("add", options.view.addOneWorld);
+    var BookSummary = Backbone.Model.extend({
+        //
+        defaults: function() {
+                return {
+                    name: "",
+                    image: "",
+                    author: "",
+                    price: ""
+                }
         }
     });
+
+    var BookSummarys = Backbone.Collection.extend({
+        //
+        model: BookSummary
+
+    });
+
+    var bookSummarys = new BookSummarys
+
+    var BookSummaryView = Backbone.Collection.extend({
+       //
+        el: $("#bookshelf"),
+
+        template: _.template($('#book-summary-item-template').html()),
+
+        events: {
+            "click .book-item-overview": ""
+        },
+
+        initialize: function() {
+          this.listenTo(this.model, 'change', this.render);
+        },
+
+        render: function() {
+            this.el.html(this.template(this.model.toJSON()));
+            return this;
+        }
+
+    });
+
 
     var AppView = Backbone.View.extend({
-        el: $("body"),
+
         initialize: function () {
-            //构造函数，实例化一个World集合类
-            //并且以字典方式传入AppView的对象
-            this.worlds = new Worlds(null, { view : this })
+            this.listenTo(bookSummarys, 'all', this.render);
+            this.main =$('#main');
         },
-        events: {
-            //事件绑定，绑定Dom中id为check的元素
-            "click #check":  "checkIn",
-        },
-        checkIn: function () {
-            var world_name = prompt("请问，您是哪星人?");
-            if(world_name == "") world_name = '未知';
-            var world = new World({ name: world_name });
-            this.worlds.add(world);
-        },
-        addOneWorld: function(model) {
-            $("#world-list").append("<li>这里是来自 <b>" + model.get('name') + "</b> 星球的问候：hello world！</li>");
+
+        render: function() {
+            this.main.show();
         }
     });
+
+
     //实例化AppView
     var appview = new AppView;
 })(jQuery);
