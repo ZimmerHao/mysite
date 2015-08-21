@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JinmingHao/mysite/issues"
   },
-  "homepage": "https://github.com/JinmingHao/mysite#readme"
+  "homepage": "https://github.com/JinmingHao/mysite#readme",
+  "devDependencies": {
+    "gulp-jshint": "^1.11.2"
+  }
 }
