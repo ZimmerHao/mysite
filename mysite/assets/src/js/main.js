@@ -21,7 +21,7 @@
         url: "/douban/books"
     });
 
-    var BookSummarys = new BookSummaryList;
+    var BookSummarys = new BookSummaryList();
 
     var BookSummaryView = Backbone.Collection.extend({
        //
@@ -73,7 +73,7 @@
             if (BookSummarys.length) {
                 this.main.show();
             } else {
-                this.main.hide()
+                this.main.hide();
             }
 
         }
@@ -81,7 +81,7 @@
 
 
     //实例化AppView
-    var App = new AppView;
+    var App = new AppView();
 
 
 })(jQuery);

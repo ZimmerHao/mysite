@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JinmingHao/mysite#readme",
   "devDependencies": {
+    "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2"
   }
 }
