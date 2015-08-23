@@ -4,20 +4,16 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link href= {% static "../../assets/components/bootstrap/dist/css/bootstrap.min.css" %} rel="stylesheet">
+    <link rel="stylesheet" href= {% static "components/bootstrap/dist/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href= {% static "src/css/main.css" %}>
 </head>
 <body>
 
-    ddddddddddddd
+    <section id="main">
+        <ul id="book-list">
 
-
-    <div id="main">
-        <div id="book-list">
-
-        </div>
-    </div>
-
-
+        </ul>
+    </section>
 
     <script type="text/template" id="book-item-overview-template">
         <div class="book-item-overview">
@@ -33,9 +29,9 @@
             </div>
         </div>
     </script>
-    <script src={% static "../../assets/components/jquery/dist/jquery.min.js" %}></script>
-    <script src={% static "../../assets/components/underscore/underscore-min.js" %}></script>
-    <script src={% static "../../assets/components/backbone/backbone-min.js" %}></script>
-    <script src={% static "../../assets/js/main.js" %}></script>
+    <script src={% static "components/jquery/dist/jquery.min.js" %}></script>
+    <script src={% static "components/underscore/underscore-min.js" %}></script>
+    <script src={% static "components/backbone/backbone-min.js" %}></script>
+    <script src={% static "src/js/main.js" %}></script>
 </body>
 </html>
