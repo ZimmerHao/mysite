@@ -77,9 +77,29 @@ $(function() {
         }
     });
 
+    var AppRouter = Backbone.Router.extend({
 
-    //实例化AppView
-    var App = new AppView();
+        routes: {
+            "douban/books/:id" : "bookDetail",
+            "douban/books" : "bookList"
+        },
+
+        initialize: function() {
+            this.appView = new AppView();
+        },
+
+        bookList: function() {
+            this.appView.showBookList();
+        },
+
+        bookDetail: function() {
+
+        }
+
+    });
+
+    var router = new AppRouter();
+    Backbone.history.start();
 
 });
 
