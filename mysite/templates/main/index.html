@@ -4,17 +4,34 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link href= {% static "components/bootstrap/dist/css/bootstrap.min.css" %} rel="stylesheet">
+    <link rel="stylesheet" href= {% static "components/bootstrap/dist/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href= {% static "src/css/main.css" %}>
 </head>
 <body>
-    {% if latest_question_list %}
-        <ul>
-        {% for question in latest_question_list %}
-            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
-        {% endfor %}
+
+    <section id="main">
+        <ul id="book-list">
+
         </ul>
-    {% else %}
-        <p>No polls are available.</p>
-    {% endif %}
+    </section>
+
+    <script type="text/template" id="book-item-overview-template">
+        <div class="book-item-overview">
+            <div class="image">
+                <img src=<%= image%> />
+            </div>
+            <div class="summary">
+                <ul>
+                    <li><%= name%></li>
+                    <li><%= author%></li>
+                    <li><%= price%></li>
+                </ul>
+            </div>
+        </div>
+    </script>
+    <script src={% static "components/jquery/dist/jquery.min.js" %}></script>
+    <script src={% static "components/underscore/underscore-min.js" %}></script>
+    <script src={% static "components/backbone/backbone-min.js" %}></script>
+    <script src={% static "src/js/main.js" %}></script>
 </body>
 </html>

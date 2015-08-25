@@ -3,3 +3,6 @@
 
 # pyc file
 *.pyc
+
+# npm packages just for develop
+node_modules

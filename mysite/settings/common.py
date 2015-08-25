@@ -115,7 +115,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets', 'common'),
+    os.path.join(BASE_DIR, 'assets'),
 )
 
 # A sample logging configuration. The only tangible logging
