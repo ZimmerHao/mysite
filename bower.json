@@ -11,7 +11,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "mysite/assets/common/components",
+    "mysite/assets/components",
     "test",
     "tests"
   ]
