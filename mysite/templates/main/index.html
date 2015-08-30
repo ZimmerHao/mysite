@@ -8,7 +8,7 @@
     <link rel="stylesheet" href= {% static "src/css/main.css" %}>
 </head>
 <body>
-
+    ssssss
     <section id="main">
         <ul id="book-list">
 
@@ -29,9 +29,20 @@
             </div>
         </div>
     </script>
-    <script src={% static "components/jquery/dist/jquery.min.js" %}></script>
-    <script src={% static "components/underscore/underscore-min.js" %}></script>
-    <script src={% static "components/backbone/backbone-min.js" %}></script>
-    <script src={% static "src/js/main.js" %}></script>
+
+    <script src={% static "components/seajs/dist/sea-debug.js" %}></script>
+    <script>
+      // Set configuration
+      seajs.config({
+        base: "{% static "" %}",
+        alias: {
+          "$": "components/jquery/dist/jquery.js",
+          "underscore": "components/underscore/underscore.js",
+          "backbone": "components/backbone/backbone.js"
+        }
+      });
+      // 加载入口模块
+      seajs.use("{% static "src/js/main" %}");
+    </script>
 </body>
 </html>
