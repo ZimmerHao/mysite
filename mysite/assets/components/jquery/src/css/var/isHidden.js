@@ -1,7 +1,7 @@
 define([
 	"../../core",
 	"../../selector"
-	// css is assumed
+	// sass is assumed
 ], function( jQuery ) {
 
 	return function( elem, el ) {

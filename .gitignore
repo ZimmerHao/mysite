@@ -6,3 +6,6 @@
 
 # npm packages just for develop
 node_modules
+
+# sass cache
+*.sass-cache
