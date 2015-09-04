@@ -2,47 +2,48 @@
  * Created by jinming on 15/9/1.
  */
 define(['jquery',
-    'underscore',
-    'backbone',
-    'collections/books',
-    './book'
+        'underscore',
+        'backbone',
+        'collections/books',
+        './book'
 ], function($, _, Backbone, BookSummarys, BookSummaryView) {
 
-        'use strict';
+    'use strict';
 
-        var AppView = Backbone.View.extend({
-            el: $("#main"),
+    var AppView = Backbone.View.extend({
+        el: $("#main"),
 
-            bookList: $("#book-list"),
+        bookList: $("#book-list"),
 
-            initialize: function () {
-                //this.listenTo(BookSummarys, 'all', this.render);
-                //this.listenTo(BookSummarys, 'reset', this.showBookList);
+        initialize: function () {
+            //this.listenTo(BookSummarys, 'all', this.render);
+            //this.listenTo(BookSummarys, 'reset', this.showBookList);
 
-                this.main = $("#main");
-                BookSummarys.fetch();
-                this.render();
-            },
+            BookSummarys.fetch();
+            this.main = $("#main");
 
-            showBookItem: function(bookItem) {
-                var view = new BookSummaryView({model: bookItem});
-                this.bookList.append(view.render().el);
-            },
+            this.render();
+        },
 
-            showBookList: function() {
-                BookSummarys.each(this.showBookItem, this);
-            },
+        showBookItem: function(bookItem) {
+            var view = new BookSummaryView({model: bookItem});
+            this.bookList.append(view.render().el);
+        },
 
-            render: function() {
-                if (BookSummarys.length) {
-                    this.main.show();
-                    this.showBookList();
-                } else {
-                    this.main.hide();
-                }
+        showBookList: function() {
+            BookSummarys.each(this.showBookItem, this);
+        },
 
+        render: function() {
+            if (BookSummarys.length) {
+                this.main.show();
+                this.showBookList();
+            } else {
+                this.main.hide();
             }
-        });
 
-        return AppView;
+        }
+    });
+
+    return AppView;
 });
