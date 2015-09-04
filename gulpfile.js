@@ -4,6 +4,13 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
 var notify = require("gulp-notify");
+var sass = require('gulp-sass');
+var compass = require('gulp-compass');
+var minifycss = require('gulp-minify-css');
+var plumber = require('gulp-plumber');
+var path = require('path');
+var autoprefixer = require('gulp-autoprefixer');
+
 
 
 gulp.task('js', function() {
