@@ -5,7 +5,7 @@ define(['jquery',
         'underscore',
         'backbone',
         'collections/books',
-        './book'
+        'views/book'
 ], function($, _, Backbone, BookSummarys, BookSummaryView) {
 
     'use strict';
@@ -16,13 +16,12 @@ define(['jquery',
         bookList: $("#book-list"),
 
         initialize: function () {
-            //this.listenTo(BookSummarys, 'all', this.render);
+            this.listenTo(BookSummarys, 'all', this.render);
             //this.listenTo(BookSummarys, 'reset', this.showBookList);
 
-            BookSummarys.fetch();
             this.main = $("#main");
+            BookSummarys.fetch({reset:true});
 
-            this.render();
         },
 
         showBookItem: function(bookItem) {
