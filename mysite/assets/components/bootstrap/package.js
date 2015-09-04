@@ -19,7 +19,7 @@ Package.onUse(function (api) {
     'dist/fonts/glyphicons-halflings-regular.ttf',
     'dist/fonts/glyphicons-halflings-regular.woff',
     'dist/fonts/glyphicons-halflings-regular.woff2',
-    'dist/css/bootstrap.css',
+    'dist/sass/bootstrap.css',
     'dist/js/bootstrap.js'
   ], 'client');
 });

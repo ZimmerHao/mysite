@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href= {% static "components/bootstrap/dist/css/bootstrap.min.css" %}>
-    <link rel="stylesheet" href= {% static "src/css/main.css" %}>
+    <link rel="stylesheet" href= {% static "src/compass/stylesheets/main.css" %}>
 </head>
 <body>
 
@@ -15,23 +15,6 @@
         </ul>
     </section>
 
-    <script type="text/template" id="book-item-overview-template">
-        <div class="book-item-overview">
-            <div class="image">
-                <img src=<%= image%> />
-            </div>
-            <div class="summary">
-                <ul>
-                    <li><%= name%></li>
-                    <li><%= author%></li>
-                    <li><%= price%></li>
-                </ul>
-            </div>
-        </div>
-    </script>
-    <script src={% static "components/jquery/dist/jquery.min.js" %}></script>
-    <script src={% static "components/underscore/underscore-min.js" %}></script>
-    <script src={% static "components/backbone/backbone-min.js" %}></script>
-    <script src={% static "src/js/main.js" %}></script>
+    <script data-main={% static "src/js/main" %} src={% static "components/requirejs/require.js" %}></script>
 </body>
 </html>
