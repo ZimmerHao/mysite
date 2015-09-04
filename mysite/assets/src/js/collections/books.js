@@ -8,7 +8,7 @@ define(['backbone', 'models/book'], function(Backbone, BookSummary) {
         //
         model: BookSummary,
 
-        url: "/douban/books"
+        url: "douban/books/"
     });
 
     return new BookSummaryList();

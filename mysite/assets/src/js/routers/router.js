@@ -8,7 +8,7 @@ define(['backbone', 'views/app'], function(Backbone, AppView) {
 
         routes: {
             "douban/books/:id" : "bookDetail",
-            "douban/books" : "bookList"
+            "douban/books/" : "bookList"
         },
 
         initialize: function() {
