@@ -1,5 +1,6 @@
-from celery import shared_task
+from mysite.celeryapp import app
 
-@shared_task
+
+@app.task(queue='default')
 def add(x, y):
     return x + y
