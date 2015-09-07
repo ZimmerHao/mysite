@@ -16,7 +16,7 @@ define(['jquery',
         bookList: $("#book-list"),
 
         initialize: function () {
-            this.listenTo(BookSummarys, 'all', this.render);
+            this.listenTo(BookSummarys, 'reset', this.render);
             //this.listenTo(BookSummarys, 'reset', this.showBookList);
 
             this.main = $("#main");
