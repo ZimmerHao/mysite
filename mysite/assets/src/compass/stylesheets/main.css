@@ -67,3 +67,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 #main {
   display: none;
 }
+
+/* line 7, ../sass/main.scss */
+.navbar {
+  background: #34495e none repeat scroll 0 0;
+  border: 0 none;
+}
+
+/* line 12, ../sass/main.scss */
+.container {
+  width: 1160px;
+}
