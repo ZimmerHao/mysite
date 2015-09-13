@@ -5,10 +5,28 @@
 }
 
 .navbar {
-    background: #34495e none repeat scroll 0 0;
+    background: #23a8f5 none repeat scroll 0 0;
     border: 0 none;
+    color: #fff;
 }
 
 .container {
     width: 1160px;
+}
+
+.banner {
+    background: rgba(0, 0, 0, 0) url("/static/src/images/homepage.jpg") no-repeat scroll left top / cover ;
+    margin-left: -3px;
+    margin-right: -3px;
+    max-height: 900px;
+    padding-bottom: 20px;
+    height: 1000px;
+}
+
+.outline-btn {
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    padding: 10px 16px;
 }

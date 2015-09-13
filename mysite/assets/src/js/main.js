@@ -15,23 +15,28 @@ require.config({
 				'jquery'
 			],
 			exports: 'Backbone'
+		},
+		bootstrap : {
+			deps :['jquery']
 		}
 	},
 	paths: {
 		jquery: '../../components/jquery/dist/jquery',
 		underscore: '../../components/underscore/underscore',
 		backbone: '../../components/backbone/backbone',
-		text: '../../components/text/text'
+		text: '../../components/text/text',
+		bootstrap: '../../components/bootstrap/dist/js/bootstrap'
 	}
 });
 
 require([
 	'backbone',
-	'routers/router'
+	'routers/router',
+	'bootstrap'
 ], function (Backbone, AppRouter) {
 	/*jshint nonew:false*/
 	// Initialize routing and start Backbone.history()
-	var router = new AppRouter();
+	//var router = new AppRouter();
 	Backbone.history.start();
 
 	// Initialize the application view

@@ -1,5 +1,6 @@
 # PyCharm
 .idea
+.DS_Store
 
 # pyc file
 *.pyc

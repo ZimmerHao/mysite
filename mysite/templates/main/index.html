@@ -2,18 +2,91 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
     <title></title>
     <link rel="stylesheet" href= {% static "components/bootstrap/dist/css/bootstrap.min.css" %}>
     <link rel="stylesheet" href= {% static "src/compass/stylesheets/main.css" %}>
 </head>
 <body>
+    <!--HEADER-->
+    <header>
+        <nav class="navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="navbar-brand" href="#">
+                        <img alt="Brand" src="">
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse navbar-right main-nav">
+                    <ul class="nav navbar-nav">
+                        <li><a href="##">Home</a></li>
+                        <li><a href="##">CSS3</a></li>
+                        <li><a href="##">Sass</a></li>
+                        <li><a href="##">jQuery</a></li>
+                        <li ><a id="login" class="outline-btn" href="##">login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="home-section banner">
+
+    </section>
+    <section class="home-section feature">
+        <div class="row feature">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img alt="Generic placeholder image" data-src="holder.js/500x500/auto" class="featurette-image img-responsive center-block">
+            </div>
+        </div>
+
+        <hr class="feature-divider">
+
+          <div class="row featurette">
+            <div class="col-md-7 col-md-push-5">
+              <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+              <img alt="Generic placeholder image" data-src="holder.js/500x500/auto" class="featurette-image img-responsive center-block">
+            </div>
+          </div>
+
+          <hr class="featurette-divider">
+
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+              <img alt="Generic placeholder image" data-src="holder.js/500x500/auto" class="featurette-image img-responsive center-block">
+            </div>
+          </div>
+
+      <hr class="featurette-divider">
+    </section>
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+
 
     <section id="main">
         <ul id="book-list">
 
         </ul>
     </section>
+
 
     <script data-main={% static "src/js/main" %} src={% static "components/requirejs/require.js" %}></script>
 </body>

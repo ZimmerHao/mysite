@@ -24,3 +24,14 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./mysite/assets/dist/js/'))
     .pipe(notify({ message: 'js task complete' }));
 });
+
+
+gulp.task('compass', function() {
+  gulp.src('./mysite/assets/src/compass/sass/*.scss')
+    .pipe(compass({
+      config_file: './mysite/assets/src/compass/config.rb',
+      css: './mysite/assets/src/compass/stylesheets',
+      sass: './mysite/assets/src/compass/sass'
+    }))
+    //.pipe(gulp.dest('./mysite/assets/temp'));
+});
